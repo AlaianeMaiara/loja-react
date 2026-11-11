@@ -1,0 +1,57 @@
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #4f46e5;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span {
+  color: #0f172a;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: 600;
+  color: #475569;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #4f46e5;
+}
+
+.carrinhoLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+}

@@ -1,0 +1,102 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.imagemContainer {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .imagem {
+  transform: scale(1.05);
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px;
+}
+
+.categoria {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6366f1;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.nome {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.linkDetalhe {
+  text-decoration: none;
+  color: inherit;
+}
+
+.linkDetalhe:hover {
+  color: #4f46e5;
+}
+
+.preco {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: auto;
+  margin-bottom: 14px;
+}
+
+.estoque {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 12px;
+}
+
+.botaoAdicionar {
+  width: 100%;
+  padding: 10px 16px;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botaoAdicionar:hover {
+  background-color: #4338ca;
+}
+
+.botaoAdicionar:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}

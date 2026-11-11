@@ -1,0 +1,68 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Grade de produtos responsiva (RF15):
+   1 coluna no celular, 2 no tablet e 4 no desktop */
+.grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grade {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.estadoMensagem {
+  text-align: center;
+  padding: 48px 16px;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  margin-top: 24px;
+}
+
+.estadoMensagem p {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.mensagemErro {
+  color: #ef4444 !important;
+  font-weight: 600;
+}
+
+.botaoTentarNovamente {
+  padding: 10px 20px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botaoTentarNovamente:hover {
+  background-color: #4338ca;
+}
