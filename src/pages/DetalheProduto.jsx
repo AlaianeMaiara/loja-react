@@ -1,21 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { buscarProdutoPorId } from '../services/api';
+import { useCarrinho } from '../hooks/useCarrinho';
 import { formatarMoeda } from '../utils/moeda';
 import styles from './DetalheProduto.module.css';
 
 /**
- * Página de Detalhe do Produto (RF05)
- * Conceitos aplicados:
- * - useParams: Hook do React Router para capturar parâmetros dinâmicos da URL (:id).
- * - useEffect com dependência [id]: refaz a busca se o ID mudar.
- * - Tratamento de 404/Produto inexistente com link de retorno ao catálogo.
+ * Página de Detalhe do Produto (RF05 e RF07)
  */
-export function DetalheProduto({ onAdicionarAoCarrinho }) {
+export function DetalheProduto() {
   const { id } = useParams();
   const [produto, setProduto] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(false);
+
+  const { adicionarItem } = useCarrinho();
 
   useEffect(() => {
     let ativo = true;
@@ -42,7 +41,7 @@ export function DetalheProduto({ onAdicionarAoCarrinho }) {
     carregarDetalhe();
 
     return () => {
-      ativo = false; // Cleanup para evitar vazamento de memória se o componente for desmontado
+      ativo = false;
     };
   }, [id]);
 
@@ -101,7 +100,7 @@ export function DetalheProduto({ onAdicionarAoCarrinho }) {
             <button
               type="button"
               disabled={semEstoque}
-              onClick={() => onAdicionarAoCarrinho && onAdicionarAoCarrinho(produto)}
+              onClick={() => adicionarItem(produto)}
               className={styles.botaoAdicionar}
             >
               {semEstoque ? 'Indisponível' : 'Adicionar ao carrinho'}

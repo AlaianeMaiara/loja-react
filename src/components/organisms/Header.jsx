@@ -1,14 +1,16 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
+import { useCarrinho } from '../../hooks/useCarrinho';
 import styles from './Header.module.css';
 
 /**
  * Header da aplicação (RF09 e RF14)
- * Utiliza o componente Badge do Material UI (@mui/material)
- * para exibir a quantidade total de itens no carrinho.
+ * Consome o CarrinhoContext via custom hook useCarrinho
+ * para manter o contador de itens sincronizado em tempo real em todas as páginas.
  */
-export function Header({ quantidadeCarrinho = 0 }) {
+export function Header() {
+  const { quantidadeTotal } = useCarrinho();
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -22,7 +24,7 @@ export function Header({ quantidadeCarrinho = 0 }) {
           </Link>
 
           <Link to="/carrinho" className={styles.carrinhoLink} aria-label="Ver carrinho de compras">
-            <Badge badgeContent={quantidadeCarrinho} color="primary" showZero>
+            <Badge badgeContent={quantidadeTotal} color="primary" showZero>
               🛒 Carrinho
             </Badge>
           </Link>
@@ -31,7 +33,3 @@ export function Header({ quantidadeCarrinho = 0 }) {
     </header>
   );
 }
-
-Header.propTypes = {
-  quantidadeCarrinho: PropTypes.number,
-};

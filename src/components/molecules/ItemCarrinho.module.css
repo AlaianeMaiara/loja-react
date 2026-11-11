@@ -1,0 +1,117 @@
+.itemCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 640px) {
+  .itemCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.imagem {
+  width: 70px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #f1f5f9;
+}
+
+.info {
+  flex: 1;
+}
+
+.nome {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.precoUnitario {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.seletorQtd {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.botaoQtd {
+  background-color: #f8fafc;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.botaoQtd:hover:not(:disabled) {
+  background-color: #e2e8f0;
+}
+
+.botaoQtd:disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.valorQtd {
+  padding: 0 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.subtotalWrapper {
+  text-align: right;
+  min-width: 100px;
+}
+
+.rotuloSubtotal {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.subtotal {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.botaoRemover {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.botaoRemover:hover {
+  background-color: #fee2e2;
+}

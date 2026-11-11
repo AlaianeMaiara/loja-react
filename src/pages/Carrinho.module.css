@@ -1,0 +1,101 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+.listaItens {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.resumoCard {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.linhaResumo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.valorTotal {
+  font-size: 1.8rem;
+  color: #4f46e5;
+}
+
+.botoesAcao {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .botoesAcao {
+    flex-direction: column;
+  }
+}
+
+.linkContinuar {
+  padding: 12px 20px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #475569;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.linkContinuar:hover {
+  background-color: #f1f5f9;
+}
+
+.botaoFinalizar {
+  padding: 12px 28px;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.botaoFinalizar:hover {
+  background-color: #4338ca;
+}
+
+.carrinhoVazio {
+  text-align: center;
+  padding: 60px 16px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px dashed #cbd5e1;
+}
+
+.carrinhoVazio p {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 24px;
+}
