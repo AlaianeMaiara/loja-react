@@ -1,0 +1,112 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Código Limpo: Habilidades Práticas do Agile Software",
+      "descricao": "Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento.",
+      "preco": 89.9,
+      "categoria": "Tecnologia",
+      "imagem": "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?w=500&auto=format&fit=crop&q=60",
+      "estoque": 8
+    },
+    {
+      "id": "2",
+      "nome": "O Programador Pragmático: De Aprendiz a Mestre",
+      "descricao": "Um dos livros de desenvolvimento de software mais importantes de todos os tempos sobre excelência técnica.",
+      "preco": 94.5,
+      "categoria": "Tecnologia",
+      "imagem": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60",
+      "estoque": 5
+    },
+    {
+      "id": "3",
+      "nome": "Entendendo Algoritmos: Um Guia Ilustrado",
+      "descricao": "Um guia ilustrado e fácil de seguir que ensina como aplicar algoritmos comuns aos problemas práticos do dia a dia.",
+      "preco": 68.0,
+      "categoria": "Tecnologia",
+      "imagem": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=500&auto=format&fit=crop&q=60",
+      "estoque": 12
+    },
+    {
+      "id": "4",
+      "nome": "Refatoração: Aperfeiçoando o Design de Códigos Existentes",
+      "descricao": "Aprenda a melhorar o design do código existente sem alterar seu comportamento observável externo.",
+      "preco": 110.0,
+      "categoria": "Tecnologia",
+      "imagem": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=500&auto=format&fit=crop&q=60",
+      "estoque": 4
+    },
+    {
+      "id": "5",
+      "nome": "Duna",
+      "descricao": "Uma obra-prima da ficção científica que narra a história de Paul Atreides no planeta desértico de Arrakis.",
+      "preco": 79.9,
+      "categoria": "Ficção Científica",
+      "imagem": "https://images.unsplash.com/photo-1506466010722-395aa2bef877?w=500&auto=format&fit=crop&q=60",
+      "estoque": 10
+    },
+    {
+      "id": "6",
+      "nome": "Fundação",
+      "descricao": "A saga épica de Isaac Asimov sobre a queda e reconstrução de um império galáctico através da psico-história.",
+      "preco": 65.0,
+      "categoria": "Ficção Científica",
+      "imagem": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format&fit=crop&q=60",
+      "estoque": 7
+    },
+    {
+      "id": "7",
+      "nome": "Neuromancer",
+      "descricao": "O clássico divisor de águas do gênero cyberpunk que cunhou o termo ciberespaço e inspirou Matrix.",
+      "preco": 59.9,
+      "categoria": "Ficção Científica",
+      "imagem": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&auto=format&fit=crop&q=60",
+      "estoque": 6
+    },
+    {
+      "id": "8",
+      "nome": "O Guia do Mochileiro das Galáxias",
+      "descricao": "A comédia espacial mais hilária da literatura mundial acompanhando a jornada de Arthur Dent pelo universo.",
+      "preco": 49.9,
+      "categoria": "Ficção Científica",
+      "imagem": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500&auto=format&fit=crop&q=60",
+      "estoque": 15
+    },
+    {
+      "id": "9",
+      "nome": "Hábitos Atômicos: Mudanças Pequenas, Resultados Notáveis",
+      "descricao": "Um método comprovado para você se livrar dos maus hábitos e criar hábitos positivos todos os dias.",
+      "preco": 54.9,
+      "categoria": "Desenvolvimento Pessoal",
+      "imagem": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&auto=format&fit=crop&q=60",
+      "estoque": 11
+    },
+    {
+      "id": "10",
+      "nome": "Essencialismo: A Disciplinada Busca por Menos",
+      "descricao": "Como focar no que realmente importa e eliminar todo o resto para produzir no seu nível mais alto.",
+      "preco": 48.0,
+      "categoria": "Desenvolvimento Pessoal",
+      "imagem": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=500&auto=format&fit=crop&q=60",
+      "estoque": 9
+    },
+    {
+      "id": "11",
+      "nome": "Rápido e Devagar: Duas Formas de Pensar",
+      "descricao": "Daniel Kahneman explora as duas mentes que controlam como tomamos decisões na vida e nos negócios.",
+      "preco": 74.9,
+      "categoria": "Desenvolvimento Pessoal",
+      "imagem": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop&q=60",
+      "estoque": 6
+    },
+    {
+      "id": "12",
+      "nome": "A Coragem de Ser Imperfeito",
+      "descricao": "Brené Brown nos mostra como aceitar a vulnerabilidade e vencer a vergonha para viver com ousadia.",
+      "preco": 45.0,
+      "categoria": "Desenvolvimento Pessoal",
+      "imagem": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=500&auto=format&fit=crop&q=60",
+      "estoque": 8
+    }
+  ]
+}
