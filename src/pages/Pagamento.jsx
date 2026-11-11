@@ -65,8 +65,7 @@ export function Pagamento() {
         setProcessando(false);
         navigate('/falha', { state: { mensagem: 'tentativa de golpe' } });
       } else {
-        // Compra aprovada: limpa o carrinho e vai para /sucesso (RF13)
-        limparCarrinho();
+        // Compra aprovada: navega para /sucesso (que limpa o carrinho de forma segura) (RF13)
         setProcessando(false);
         navigate('/sucesso');
       }

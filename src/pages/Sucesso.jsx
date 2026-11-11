@@ -1,10 +1,23 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useCarrinho } from '../hooks/useCarrinho';
 
 /**
  * Tela de Sucesso da Compra (RF11 e RF13)
- * Exibida após a simulação de pagamento aprovado. O carrinho foi limpo com sucesso.
+ * Exibida após a simulação de pagamento aprovado.
+ * Limpa o carrinho de compras no momento da montagem (evitando disputa de renderização com a RotaPrivada).
  */
 export function Sucesso() {
+  const { limparCarrinho } = useCarrinho();
+  const executadoRef = useRef(false);
+
+  useEffect(() => {
+    if (!executadoRef.current) {
+      limparCarrinho();
+      executadoRef.current = true;
+    }
+  }, [limparCarrinho]);
+
   return (
     <div style={{ maxWidth: '600px', margin: '40px auto', padding: '32px 16px', textAlign: 'center' }}>
       <div
