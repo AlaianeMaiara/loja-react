@@ -3,10 +3,14 @@ import { Layout } from './components/templates/Layout';
 import { Produtos } from './pages/Produtos';
 import { DetalheProduto } from './pages/DetalheProduto';
 import { Carrinho } from './pages/Carrinho';
+import { Pagamento } from './pages/Pagamento';
+import { Sucesso } from './pages/Sucesso';
+import { Falha } from './pages/Falha';
 import { NaoEncontrada } from './pages/NaoEncontrada';
+import { RotaPrivada } from './routes/RotaPrivada';
 
 /**
- * Componente Raiz de Configuração das Rotas (RF14)
+ * Componente Raiz de Configuração das Rotas (RF11, RF12 e RF14)
  */
 export function App() {
   return (
@@ -21,6 +25,18 @@ export function App() {
 
         {/* Grupo B: Carrinho de Compras */}
         <Route path="/carrinho" element={<Carrinho />} />
+
+        {/* Grupo C: Rota Privada de Pagamento e Resultados */}
+        <Route
+          path="/pagamento"
+          element={
+            <RotaPrivada>
+              <Pagamento />
+            </RotaPrivada>
+          }
+        />
+        <Route path="/sucesso" element={<Sucesso />} />
+        <Route path="/falha" element={<Falha />} />
 
         {/* Rota 404 para URLs não mapeadas */}
         <Route path="*" element={<NaoEncontrada />} />
