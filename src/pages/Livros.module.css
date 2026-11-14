@@ -12,7 +12,7 @@
   margin-bottom: 24px;
 }
 
-/* Grade de produtos responsiva (RF15):
+/* Grade de livros responsiva (RF15):
    1 coluna no celular, 2 no tablet e 4 no desktop */
 .grade {
   display: grid;

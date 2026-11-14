@@ -14,13 +14,13 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link to="/produtos" className={styles.logo}>
+        <Link to="/livros" className={styles.logo}>
           📚 <span>Livraria React</span>
         </Link>
 
         <nav className={styles.nav}>
-          <Link to="/produtos" className={styles.navLink}>
-            Catálogo
+          <Link to="/livros" className={styles.navLink}>
+            Livros
           </Link>
 
           <Link to="/carrinho" className={styles.carrinhoLink} aria-label="Ver carrinho de compras">

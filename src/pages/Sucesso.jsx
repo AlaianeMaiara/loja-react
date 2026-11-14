@@ -37,7 +37,7 @@ export function Sucesso() {
           Obrigado por comprar na Livraria React. Os seus livros já estão sendo preparados para o envio fictício!
         </p>
         <Link
-          to="/produtos"
+          to="/livros"
           style={{
             display: 'inline-block',
             backgroundColor: '#4f46e5',

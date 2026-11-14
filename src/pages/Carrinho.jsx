@@ -19,7 +19,7 @@ export function Carrinho() {
       <div className={styles.container}>
         <div className={styles.carrinhoVazio} role="status">
           <p>Seu carrinho de compras está vazio no momento.</p>
-          <Link to="/produtos" className={styles.botaoFinalizar}>
+          <Link to="/livros" className={styles.botaoFinalizar}>
             Explorar catálogo de livros
           </Link>
         </div>
@@ -51,7 +51,7 @@ export function Carrinho() {
         </div>
 
         <div className={styles.botoesAcao}>
-          <Link to="/produtos" className={styles.linkContinuar}>
+          <Link to="/livros" className={styles.linkContinuar}>
             Continuar comprando
           </Link>
           <Link to="/pagamento" className={styles.botaoFinalizar}>

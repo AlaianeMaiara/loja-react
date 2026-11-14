@@ -9,37 +9,46 @@ export function CarrinhoProvider({ children }) {
   const [itens, setItens] = useState([]);
 
   /**
-   * Adiciona um produto ao carrinho (RF07)
-   * - Se o produto não existir, adiciona com quantidade 1.
+   * Adiciona um livro ao carrinho (RF07)
+   * - Livros esgotados (estoque 0) não podem ser adicionados.
+   * - Se o livro não existir no carrinho, adiciona com quantidade 1.
    * - Se já existir, incrementa 1, desde que não ultrapasse o estoque disponível.
    */
-  const adicionarItem = useCallback((produto) => {
-    if (!produto || !produto.id) return;
+  const adicionarItem = useCallback((livro) => {
+    if (!livro || !livro.id) return;
+
+    // RF07: livros esgotados (estoque 0) não podem ser adicionados
+    if (livro.estoque <= 0) {
+      alert(`O livro "${livro.titulo || livro.nome}" está esgotado.`);
+      return;
+    }
 
     setItens((itensAtuais) => {
-      const itemExistente = itensAtuais.find((item) => item.id === produto.id);
+      const itemExistente = itensAtuais.find((item) => item.id === livro.id);
 
       if (itemExistente) {
         // Verifica limite de estoque
-        if (itemExistente.quantidade >= produto.estoque) {
-          alert(`Limite de estoque atingido para o livro "${produto.nome}" (${produto.estoque} unidades disponíveis).`);
+        if (itemExistente.quantidade >= livro.estoque) {
+          alert(`Limite de estoque atingido para o livro "${livro.titulo || livro.nome}" (${livro.estoque} unidades disponíveis).`);
           return itensAtuais;
         }
 
         return itensAtuais.map((item) =>
-          item.id === produto.id
+          item.id === livro.id
             ? { ...item, quantidade: item.quantidade + 1 }
             : item
         );
       }
 
-      // Se for a primeira vez que entra no carrinho, valida se há estoque
-      if (produto.estoque <= 0) {
-        alert(`O livro "${produto.nome}" está esgotado.`);
-        return itensAtuais;
-      }
-
-      return [...itensAtuais, { ...produto, quantidade: 1 }];
+      return [
+        ...itensAtuais,
+        {
+          ...livro,
+          titulo: livro.titulo || livro.nome,
+          capa: livro.capa || livro.imagem,
+          quantidade: 1,
+        },
+      ];
     });
   }, []);
 

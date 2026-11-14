@@ -8,19 +8,21 @@ import styles from './ItemCarrinho.module.css';
  * Validação de Props rigorosa com PropTypes (Critério 6 da Avaliação).
  */
 export function ItemCarrinho({ item, onAlterarQuantidade, onRemover }) {
-  const { id, nome, preco, imagem, estoque, quantidade } = item;
+  const { id, titulo, nome, preco, capa, imagem, estoque, quantidade } = item;
+  const tituloExibido = titulo || nome;
+  const capaExibida = capa || imagem;
   const subtotal = calcularSubtotal(preco, quantidade);
 
   return (
     <div className={styles.itemCard}>
       <img
-        src={imagem}
-        alt={`Capa de ${nome}`}
+        src={capaExibida}
+        alt={`Capa de ${tituloExibido}`}
         className={styles.imagem}
       />
 
       <div className={styles.info}>
-        <h4 className={styles.nome}>{nome}</h4>
+        <h4 className={styles.nome}>{tituloExibido}</h4>
         <span className={styles.precoUnitario}>
           Unitário: {formatarMoeda(preco)}
         </span>
@@ -65,7 +67,7 @@ export function ItemCarrinho({ item, onAlterarQuantidade, onRemover }) {
           type="button"
           onClick={() => onRemover(id)}
           className={styles.botaoRemover}
-          aria-label={`Remover ${nome} do carrinho`}
+          aria-label={`Remover ${tituloExibido} do carrinho`}
         >
           Remover
         </button>
@@ -77,9 +79,11 @@ export function ItemCarrinho({ item, onAlterarQuantidade, onRemover }) {
 ItemCarrinho.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    nome: PropTypes.string.isRequired,
+    titulo: PropTypes.string,
+    nome: PropTypes.string,
     preco: PropTypes.number.isRequired,
-    imagem: PropTypes.string.isRequired,
+    capa: PropTypes.string,
+    imagem: PropTypes.string,
     estoque: PropTypes.number.isRequired,
     quantidade: PropTypes.number.isRequired,
   }).isRequired,

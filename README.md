@@ -1,19 +1,22 @@
-# 📚 Livraria React — E-commerce SPA Completo
+# 📚 Livraria React — Projeto Avaliativo de Recuperação (Módulo 2)
 
-> Projeto Avaliativo do **Módulo 2 (Semana 12)** do curso **Front-End React T1**.  
-> Desenvolvido por: **Alaiane Ferreira**  
-> Repositório: Privado (Avaliadores adicionados: `yanesteves` e `lab365-operacao`)
+> Projeto de Recuperação do **Módulo 2 (Semana 14)** do curso **Front-End React - Turma 01**.  
+> **Prazo de Entrega no AVA:** 16/11/2026 às 22h  
+> **Desenvolvido por:** Alaiane Ferreira  
+> **Repositório:** Privado (Avaliadores adicionados: `yanesteves` e `lab365-operacao`)
 
 ---
 
 ## 1. 🎯 Sobre o Projeto
 
-A **Livraria React** é uma Single Page Application (SPA) completa de comércio eletrônico de livros. Ela resolve o problema de descoberta literária e compra fluida, permitindo ao usuário:
-1. **Explorar um catálogo** variado de livros organizados por categorias (`Tecnologia`, `Ficção Científica`, `Desenvolvimento Pessoal`);
-2. **Filtrar títulos em tempo real** através de um campo de busca otimizado com `useMemo`;
-3. **Ver detalhes completos** de cada obra em rotas dinâmicas (`/produtos/:id`);
-4. **Gerenciar um carrinho de compras global** alimentado por `Context API`, com controle rigoroso de estoque e persistência de dados;
-5. **Realizar checkout protegido por Rota Privada**, com validação de dados de cartão via `React Hook Form` + `Zod`, e detecção automática de fraudes (regra anti-golpe).
+A **Livraria React** é uma Single Page Application (SPA) completa de comércio eletrônico de livros. Ela resolve o problema de descoberta literária e compra fluida, atendendo rigorosamente a todos os requisitos do documento de recuperação:
+1. **Catálogo de Livros (`/livros`):** 12 livros divididos em 4 categorias (`Tecnologia`, `Fantasia`, `Romance`, `Ficção Científica`), incluindo títulos esgotados (`estoque: 0`);
+2. **Busca em Tempo Real (RF04):** Campo controlado filtrando tanto pelo **título** quanto pelo **autor** do livro (ex.: digitar *"tolkien"* exibe os livros de J.R.R. Tolkien), calculado com `useMemo`;
+3. **Tratamento de Livros Esgotados (RF03, RF05 e Critério 5):** Exibição do selo **"Esgotado"** e botão *"Adicionar ao carrinho"* desabilitado tanto no card quanto na tela de detalhe, impedindo que itens sem estoque entrem no carrinho;
+4. **Detalhe do Livro Semântico (`/livros/:id` - RF05):** Rota dinâmica com `useParams` utilizando HTML semântico obrigatório (`<article>`, `<h1>`, `<img>` com alt descritivo, `<p>` para o resumo, preço em reais e estoque);
+5. **Carrinho com Context API (`/carrinho` - RF06 a RF09):** Gerenciamento de estado global com `CarrinhoContext` e custom hook `useCarrinho`, controles de quantidade (`- 1 +`), cálculo de subtotais e valor total com `useMemo`, e indicador `Badge` do Material UI no Header;
+6. **Checkout Protegido por Rota Privada (RF10 a RF13):** Acesso restrito a carrinhos com itens via `RotaPrivada` com `<Navigate />`. Formulário com `React Hook Form` e `Zod`, simulação assíncrona com botão desabilitado, detecção de fraude com mensagem exata `"tentativa de golpe"` na tela `/falha` (mantendo itens) e tela `/sucesso` (limpando o carrinho);
+7. **Testes Unitários Automatizados (RF17):** 18 testes automatizados no Vitest cobrindo caminhos felizes e tristes para as 4 regras de negócio em `src/utils/` (`moeda.js`, `carrinho.js`, `busca.js` e `pagamento.js`).
 
 ---
 
@@ -21,72 +24,72 @@ A **Livraria React** é uma Single Page Application (SPA) completa de comércio 
 
 | Tecnologia | Finalidade no Projeto |
 | :--- | :--- |
-| **React 19** | Biblioteca declarativa para construção de interfaces reativas e baseadas em componentes. |
-| **Vite 8** | Build tool e servidor local ultrarrápido com Hot Module Replacement (HMR). |
-| **React Router DOM 7** | Gerenciamento de rotas SPA, rotas aninhadas com `<Outlet />`, parâmetros dinâmicos (`useParams`) e rotas privadas (`<Navigate />`). |
-| **Context API & Custom Hooks** | Gerenciamento de estado global do carrinho (`CarrinhoContext` e `useCarrinho`) com `useMemo` e `useCallback`. |
-| **React Hook Form & Zod** | Formulário de checkout com alta performance (componentes não controlados) e validação estrita com schemas declarativos. |
-| **Material UI (@mui/material)** | Componente `Badge` estilizado no cabeçalho exibindo a contagem de itens do carrinho em tempo real. |
-| **CSS Modules** | Estilização com escopo local isolado e design responsivo *mobile-first* (1 coluna no mobile, 2 no tablet e 4 no desktop). |
-| **json-server** | API REST mock local servindo a coleção de produtos a partir de `db.json`. |
-| **Vitest** | Executor de testes unitários automatizados cobrindo as regras de negócio em `utils/`. |
-| **Git & GitHub** | Controle de versão profissional seguindo padrão Gitflow com branches por funcionalidade. |
+| **React 19** | Construção da interface reativa baseada em componentes funcionais. |
+| **Vite 8** | Servidor de desenvolvimento ultrarrápido com HMR e empacotamento de produção otimizado. |
+| **React Router DOM 7** | Navegação SPA com rotas dinâmicas (`/livros/:id`), layout aninhado com `<Outlet />`, rota privada e página 404. |
+| **Context API & Hooks** | Gerenciamento de estado global com `CarrinhoContext`, `useCarrinho`, `useMemo` e `useCallback`. |
+| **React Hook Form & Zod** | Formulário de checkout de alta performance com validação declarativa de schemas. |
+| **Material UI (@mui/material)** | Componente `Badge` no cabeçalho exibindo a contagem do carrinho em tempo real. |
+| **CSS Modules** | Estilos modulares e design responsivo *mobile-first* (1 coluna mobile, 2 tablet, 4 desktop). |
+| **json-server** | API REST mock servindo a coleção `"livros"` a partir de `db.json` na porta 3001. |
+| **Vitest** | Suíte de testes unitários automatizados para as funções puras de regras de negócio. |
+| **Git & GitHub** | Controle de versão seguindo o padrão Gitflow profissional com branches temáticas. |
 
 ---
 
 ## 3. 📂 Estrutura de Pastas (Atomic Design)
 
-A arquitetura do projeto segue o padrão **Atomic Design** e separação modular de responsabilidades:
-
 ```text
 loja-react/
-├── db.json                     # Banco de dados simulado da API (12 livros, 3 categorias)
-├── package.json                # Dependências, metadados e scripts de execução
-├── vite.config.js              # Configuração do empacotador Vite
-├── README.md                   # Documentação oficial do projeto
+├── db.json                     # Banco com 12 livros (sendo 2 com estoque 0)
+├── package.json                # Dependências e scripts (dev, api, test, build)
+├── vite.config.js              # Configuração do Vite
+├── README.md                   # Documentação técnica oficial
 └── src/
     ├── main.jsx                # Ponto de entrada (BrowserRouter + CarrinhoProvider)
-    ├── App.jsx                 # Configuração central das rotas da aplicação
-    ├── index.css               # Estilos globais e reset de CSS
+    ├── App.jsx                 # Configuração das rotas (/livros, /livros/:id, /carrinho, etc.)
+    ├── index.css               # Estilos globais e reset
     ├── components/
-    │   ├── atoms/              # Componentes básicos indivisíveis
+    │   ├── atoms/              # Botões, inputs e selos
     │   │   ├── CampoBusca.jsx
-    │   │   └── CampoBusca.module.css
-    │   ├── molecules/          # Junções de átomos com propósito específico
-    │   │   ├── ProdutoCard.jsx
-    │   │   ├── ProdutoCard.module.css
+    │   │   ├── CampoBusca.module.css
+    │   │   ├── SeloEsgotado.jsx
+    │   │   └── SeloEsgotado.module.css
+    │   ├── molecules/          # Cards e itens modulares
+    │   │   ├── LivroCard.jsx
+    │   │   ├── LivroCard.module.css
     │   │   ├── ItemCarrinho.jsx
     │   │   └── ItemCarrinho.module.css
-    │   ├── organisms/          # Blocos completos da interface
-    │   │   ├── Header.jsx (Badge MUI)
+    │   ├── organisms/          # Header com Badge e Footer
+    │   │   ├── Header.jsx
     │   │   ├── Header.module.css
     │   │   ├── Footer.jsx
     │   │   └── Footer.module.css
-    │   └── templates/          # Estruturas de layout da página
-    │       ├── Layout.jsx (Header + Outlet + Footer)
+    │   └── templates/          # Layout estrutural com <Outlet />
+    │       ├── Layout.jsx
     │       └── Layout.module.css
-    ├── pages/                  # Telas completas da aplicação
-    │   ├── Produtos.jsx        # Catálogo com busca e listagem
-    │   ├── DetalheProduto.jsx  # Tela dinâmica com useParams
-    │   ├── Carrinho.jsx        # Gerenciamento de itens e subtotais
+    ├── pages/                  # Telas completas
+    │   ├── Livros.jsx          # Catálogo com busca por título ou autor
+    │   ├── DetalheLivro.jsx    # Detalhe semântico com useParams
+    │   ├── Carrinho.jsx        # Carrinho com cálculos e controles
     │   ├── Pagamento.jsx       # Checkout com validação Zod
-    │   ├── Sucesso.jsx         # Confirmação e carrinho limpo
-    │   ├── Falha.jsx           # Erro anti-golpe e retenção dos itens
+    │   ├── Sucesso.jsx         # Confirmação de compra
+    │   ├── Falha.jsx           # Tela anti-golpe com botão tentar novamente
     │   └── NaoEncontrada.jsx   # Página 404 personalizada
     ├── routes/
-    │   └── RotaPrivada.jsx     # Proteção de acesso ao checkout
+    │   └── RotaPrivada.jsx     # Proteção da rota de pagamento
     ├── contexts/
-    │   └── CarrinhoContext.jsx # Estado global, ações e cálculos
+    │   └── CarrinhoContext.jsx # Estado global e ações do carrinho
     ├── hooks/
-    │   └── useCarrinho.js      # Custom hook para consumo seguro do contexto
+    │   └── useCarrinho.js      # Custom hook para consumo do contexto
     ├── services/
-    │   └── api.js              # Chamadas HTTP com fallback automático (RF18)
+    │   └── api.js              # Chamadas HTTP (GET /livros, GET /livros/:id com fallback)
     └── utils/
-        ├── moeda.js            # Formatação monetária BRL (R$)
-        ├── busca.js            # Filtro case-insensitive de produtos
-        ├── carrinho.js         # Cálculos de subtotais e totais
-        ├── pagamento.js        # Regra de detecção de tentativa de golpe
-        └── __tests__/          # Suíte de 17 testes automatizados
+        ├── moeda.js            # Formatação de moeda BRL (R$)
+        ├── busca.js            # Filtro por título OU autor (filtrarLivros)
+        ├── carrinho.js         # Cálculos de subtotais e total geral
+        ├── pagamento.js        # Regra de golpe (todosDigitosIguais)
+        └── __tests__/          # 18 testes automatizados no Vitest
             ├── moeda.test.js
             ├── carrinho.test.js
             ├── busca.test.js
@@ -98,112 +101,98 @@ loja-react/
 ## 4. ⚙️ Como Executar a Aplicação
 
 ### Pré-requisitos:
-- [Node.js](https://nodejs.org/) (versão 20 ou superior recomendada)
+- [Node.js](https://nodejs.org/) (versão 20 ou superior)
 - [Git](https://git-scm.com/)
 
-### Passo a passo:
+### Comandos:
 
-1. **Clonar o repositório:**
-   ```bash
-   git clone <URL_DO_SEU_REPOSITORIO>
-   cd loja-react
-   ```
-
-2. **Instalar as dependências:**
+1. **Instalar dependências:**
    ```bash
    npm install
    ```
 
-3. **Iniciar a API simulada (json-server):**
+2. **Iniciar a API simulada (json-server):**
    ```bash
    npm run api
    ```
-   *A API estará disponível em: `http://localhost:3001/produtos`*
+   *Servidor rodando em: `http://localhost:3001/livros`*
 
-4. **Iniciar a aplicação React (em um novo terminal):**
+3. **Iniciar a aplicação React (em outro terminal):**
    ```bash
    npm run dev
    ```
-   *Acesse a loja no navegador em: `http://localhost:5173/`*
+   *Acesse em: `http://localhost:5173/`*
 
-5. **Executar a bateria de testes unitários automatizados:**
+4. **Rodar a bateria de testes automatizados:**
    ```bash
    npm test
    ```
-   *Executa 17 testes cobrindo todas as regras de negócio em `src/utils/` com caminho feliz e caminho triste.*
+   *Executa 18 testes com 100% de sucesso cobrindo as regras de negócio.*
 
-6. **Gerar a versão otimizada de produção:**
+5. **Gerar a versão de produção:**
    ```bash
    npm run build
    ```
 
 ---
 
-## 5. 🌿 Padrão de Versionamento Gitflow
+## 5. 🌿 Branches e Histórico no Gitflow
 
-O projeto utilizou uma abordagem profissional com branches isoladas por funcionalidade, histórico linear e mensagens de commit descritivas no presente/imperativo:
-
-- **`main`**: Branch de produção estável, contendo apenas a versão final consolidada.
-- **`develop`**: Branch de integração contínua de todas as features.
-- **`feature/configuracao-inicial`**: Instalação do ecossistema de bibliotecas e configuração do Vite/Vitest.
-- **`feature/api-produtos`**: Criação do banco de dados `db.json` com 12 livros e script `npm run api` (RF01).
-- **`feature/catalogo`**: Listagem, card acessível com `PropTypes`, busca com `useMemo`, detalhes com `useParams` e layout (RF02 a RF05, RF14 e RF15).
-- **`feature/carrinho-context`**: Estado global com `CarrinhoContext` e hook `useCarrinho`, controle de estoque e Badge no Header (RF06 a RF09).
-- **`feature/checkout-pagamento`**: Rota privada, formulário com `React Hook Form` + `Zod`, fluxo anti-golpe e telas de resultado (RF10 a RF13).
-- **`feature/testes-unitarios`**: 17 testes automatizados cobrindo as 4 regras de negócio de `utils/` (RF17).
-- **`feature/documentacao-readme`**: Elaboração deste README técnico e guia de apresentação.
+- **`main`**: Versão estável final consolidada para entrega.
+- **`develop`**: Linha de integração de desenvolvimento.
+- **`feature/configuracao-inicial`**: Dependências e ambiente Vite.
+- **`feature/api-produtos`**: Criação da primeira versão do `db.json`.
+- **`feature/catalogo`**: Primeira versão do catálogo.
+- **`feature/carrinho-context`**: Implementação do `CarrinhoContext` e `useCarrinho`.
+- **`feature/checkout-pagamento`**: Rota privada, formulário Zod e telas de resultado.
+- **`feature/testes-unitarios`**: Testes unitários com Vitest.
+- **`feature/documentacao-readme`**: Documentação inicial.
+- **`feature/recuperacao-livraria`**: Atualização completa para os requisitos de recuperação (endpoints `/livros`, busca por autor, selo "Esgotado", bloqueio de estoque 0 e semântica HTML).
 
 ---
 
 ## 6. 🧪 Cobertura de Testes Automatizados (RF17)
 
-Foram implementados testes unitários para as 4 funções de regra de negócio, cobrindo caminhos felizes e tristes:
-
+Foram implementados testes cobrindo caminho feliz e caminho triste para todas as regras de negócio:
 - `formatarMoeda`: Formatação em R$, valores negativos, nulos e tipos inválidos.
-- `calcularSubtotal`: Multiplicação de preço e quantidade, proteção contra valores negativos.
-- `calcularTotal`: Soma dos itens do carrinho, tolerância a arrays vazios e dados corrompidos.
-- `calcularQuantidadeTotal`: Soma de unidades de produtos, validação de entradas inválidas.
-- `filtrarProdutos`: Busca sem distinção de maiúsculas/minúsculas, termo vazio e entradas nulas.
-- `todosDigitosIguais`: Identificação exata de tentativa de golpe (16 dígitos iguais com traços/espaços) vs cartões legítimos.
+- `calcularSubtotal`: Multiplicação unitária e proteção contra negativos.
+- `calcularTotal`: Soma de todos os itens e tolerância a carrinho vazio.
+- `calcularQuantidadeTotal`: Soma de unidades presentes no carrinho.
+- `filtrarLivros`: Busca por **título** ou por **autor** (ex.: "tolkien"), case-insensitive, termos vazios e dados corrompidos.
+- `todosDigitosIguais`: Detecção exata de golpe (16 dígitos iguais com ou sem traços/espaços).
 
-Resultado: **17 testes aprovados com 100% de sucesso**.
+**Resultado:** `Test Files: 4 passed (4) | Tests: 18 passed (18)`.
 
 ---
 
 ## 7. 🎬 Roteiro de Gravação do Vídeo (Item 5.4 - até 7 min)
 
-Para gravação do vídeo de apresentação da aluna **Alaiane Ferreira**, siga este roteiro estruturado:
+Grave mostrando seu rosto no início, boa iluminação, e compartilhe a tela:
 
-1. **Qual o objetivo do sistema e demonstração prática:**
-   - Apresente a **Livraria React**, uma loja virtual completa para amantes de livros.
-   - Mostre o catálogo carregando os 12 livros da API (`db.json`).
-   - Mostre a busca instantânea com `useMemo` filtrando sem recarregar a tela.
-   - Abra um livro para mostrar a rota dinâmica `/produtos/:id` com `useParams`.
-   - Adicione livros ao carrinho e aponte para o `Badge` do cabeçalho subindo em tempo real.
-   - Abra `/carrinho`, altere quantidades e mostre o cálculo do total.
-   - Clique em "Finalizar compra" e mostre a **Rota Privada** bloqueando se o carrinho estivesse vazio.
-   - Simule o golpe com cartão repetido (`1111 1111 1111 1111`) exibindo *"tentativa de golpe"*.
-   - Em seguida, conclua uma compra com cartão válido mostrando a tela de sucesso e a limpeza do carrinho.
-
-2. **O que deve ser realizado para executar o sistema:**
-   - Explicar os scripts: `npm install`, `npm run api` na porta 3001, `npm run dev` na porta 5173 e `npm test` para os testes do Vitest.
-
-3. **Como organizou as tarefas antes de começar:**
-   - Planejamento através do Kanban no **Trello** dividido em: A Fazer, Em Andamento, Em Testes e Concluído.
-   - Organização em arquitetura **Atomic Design** e módulos separados (`services`, `contexts`, `hooks`, `utils`).
-
-4. **Quais as branches criadas e seus objetivos:**
-   - Citar a `main` (produção), `develop` (integração) e as 7 feature branches descritas na seção 5 deste README.
-
-5. **O que faltou ou poderia ser melhorado:**
-   - Adição de persistência no `localStorage` para manter o carrinho ao fechar o navegador.
-   - Criação de um segundo contexto para alternância de Tema Claro / Tema Escuro (*Dark Mode*).
-   - Integração com gateway de pagamento real via API webhook.
+1. **Abertura e Aprendizado com IA:**
+   - Destaque que utilizou a Inteligência Artificial como **professora e mentora sênior**, comando a comando, para aprender os conceitos com profundidade e fugir do *vibe code* (atendendo ao checklist `[x] Conferi o código sugerido pela IA e consigo explicá-lo`).
+2. **Demonstração do Sistema:**
+   - Mostre a rota `/livros` com os 12 livros e os 2 livros marcados com o selo **"Esgotado"** e botões desabilitados.
+   - Digite `"tolkien"` na busca para mostrar a filtragem por autor em tempo real com `useMemo`.
+   - Abra um livro para mostrar a rota `/livros/:id` com as tags semânticas pedidas (`<article>`, `<h1>`, `<img>` com alt descritivo, `<p>` para o resumo e estoque).
+   - Adicione livros e mostre o `Badge` no Header atualizando em tempo real com a Context API.
+   - Demonstre a tela `/carrinho` com totais.
+   - Tente acessar `/pagamento` com carrinho vazio para comprovar o bloqueio da `RotaPrivada`.
+   - Demonstre o pagamento com cartão repetido (`1111 1111 1111 1111`) levando à tela `/falha` com a mensagem exata `"tentativa de golpe"`.
+   - Conclua com cartão válido (`1234 5678 9012 3456`) aprovando a compra em `/sucesso` e limpando o carrinho.
+3. **Como Executar o Sistema:**
+   - Explique os scripts `npm install`, `npm run api`, `npm run dev` e execute `npm test` no terminal mostrando os 18 testes passando.
+4. **Organização das Tarefas:**
+   - Planejamento com Kanban no Trello (opcional, mas recomendado).
+5. **Branches e Gitflow:**
+   - Apresente as branches no GitHub (`main`, `develop` e feature branches).
+6. **Melhorias Futuras:**
+   - Salvar no `localStorage`, criar `TemaContext` (dark mode) e gateway de pagamento real.
 
 ---
 
 ## 8. 🔗 Links de Entrega
 
-- **Quadro do Trello:** [Inserir Link do Trello Público]
-- **Deploy em Produção:** [Inserir Link da Netlify/Vercel]
-- **Vídeo de Demonstração (Google Drive):** [Inserir Link do Vídeo em Modo Leitor]
+- **Repositório GitHub Privado:** `https://github.com/AlaianeMaiara/loja-react`
+- **Vídeo no Google Drive (Modo Leitor):** [Inserir Link do Vídeo]
+- **Trello (Opcional):** [Inserir Link do Trello Público]

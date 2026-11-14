@@ -14,7 +14,7 @@ export function NaoEncontrada() {
         O link que você tentou acessar não existe ou foi removido.
       </p>
       <Link
-        to="/produtos"
+        to="/livros"
         style={{
           display: 'inline-block',
           backgroundColor: '#4f46e5',

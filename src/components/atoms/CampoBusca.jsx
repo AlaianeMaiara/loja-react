@@ -14,8 +14,8 @@ export function CampoBusca({ valor, onMudanca, onLimpar }) {
           type="search"
           value={valor}
           onChange={(e) => onMudanca(e.target.value)}
-          placeholder="Buscar livro pelo título..."
-          aria-label="Buscar livros"
+          placeholder="Buscar livro pelo título ou autor (ex: tolkien)..."
+          aria-label="Buscar livros por título ou autor"
           className={styles.input}
         />
       </div>
